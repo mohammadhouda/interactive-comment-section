@@ -1,0 +1,302 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+:root{
+    --Moderate-blue: hsl(238, 40%, 52%);
+    --Soft-Red: hsl(358, 79%, 66%);
+    --Light-grayish-blue: hsl(239, 57%, 85%);
+    --Pale-red: hsl(357, 100%, 86%);
+    --Dark-blue: hsl(212, 24%, 26%);
+    --Grayish-Blue: hsl(211, 10%, 45%);
+    --Light-gray: hsl(223, 19%, 93%);
+    --Very-light-gray: hsl(228, 33%, 97%);
+    --White: hsl(0, 0%, 100%);
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+}
+
+p{
+    font-size: 16px;
+}
+
+body{
+    min-height: 100vh;
+    background-color: var(--Very-light-gray);
+    font-family: "Rubik", sans-serif;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    gap: 40px;
+    margin: 20px;
+}
+
+.boxes{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cont{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.comments{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+.box{
+    min-height: 100px;
+    width: 750px;
+    background-color: var(--White);
+    padding: 20px;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+}
+
+.reply-box{
+    min-height: 100px;
+    background-color: var(--White);
+    padding: 20px;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+}
+
+.box .vote{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 30px 10px 20px;
+    height: 90px;
+    padding: 7px;
+    justify-content: space-between;
+    background-color: var(--Very-light-gray);
+    border-radius: 5px;
+}
+
+.box .vote button{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    position: relative;
+    left: 3px;
+}
+
+.box .vote button svg{
+    transition: 0.3s;
+}
+
+.box .vote button svg:hover {
+    fill: rgb(37 99 235);
+}
+
+.box .vote .addVote, .box .vote .removeVote{
+cursor: pointer;
+transition: 0.3s;
+}
+
+.box .vote .numofvotes{
+font-weight: bold;
+color: rgb(37 99 235);
+}
+
+.box .info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+.box .info .profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.box .info .text {
+    color: var(--Grayish-Blue);
+    line-height: 25px;
+    word-break: break-all;
+}
+
+.box .info .profile .userName {
+    font-weight: bold;
+}
+
+.box .info .profile .timepost{
+    color: var(--Grayish-Blue);
+}
+
+.box .info .profile img{
+    height: 30px;
+}
+
+.box .info .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.box .info .head .reply{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    transition: 0.3s;
+}
+
+.box .info .head .reply a {
+    color: rgb(37 99 235);
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.box .info .head .reply svg {
+    transition: 0.3s;
+}
+
+.box .info .head .reply:hover a{
+color: rgba(0, 128, 255, 0.603);
+}
+
+.box .info .head .reply:hover svg{
+fill: rgba(0, 128, 255, 0.603);
+}
+
+.replyComments{
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.replyComments::before{
+    position: absolute;
+    content: "";
+    left: 70px;
+    top: 0;
+    height:100%;
+    width: 4px;
+    background-color: #ddd;
+    border-radius: 10px;
+}
+
+.replyComments .box{
+  width: 600px    
+}
+
+.inputUser, .replyUser{
+    min-height: 150px;
+    width: 750px;
+    background-color: var(--White);
+    padding: 20px;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.usernameTo{
+    color: rgb(37 99 235);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.inputUser .input, .replyUser .replyText, textarea.input{
+    flex: 1;
+    margin: 0 10px;
+    font-size: 17px;
+    padding: 10px;
+    max-height: 150px;
+    border-radius: 10px;
+    resize: none;
+    align-self: flex-start;
+    border: 2px solid rgb(37 99 235);
+    width: 100%;
+}
+
+.inputUser .userImg,.replyUser .userImg{
+    height: 40px;
+    width: 40px;
+    align-self: flex-start;
+}
+
+.inputUser .sendBtn, .replyUser .replyTo{
+    background-color: rgb(37 99 235);
+    color: white;
+    font-weight: bold;
+    padding: 7px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    width: 70px;
+    font-size: 15px;
+    align-self: flex-start;
+}
+
+.replyUser{
+    display: none;
+}
+
+
+.edits {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.edits button, .deleteReplyBtn, .editReplyBtn{
+    padding: 5px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 15px;
+    
+}
+
+.updateBtn, .updateReplyBtn{
+    padding: 5px;
+    background-color: rgb(37 99 235) !important;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: 7px;
+    color: white;
+}
+
+
+.edits .editBtn, .editReplyBtn{
+    color: rgb(37 99 235);
+
+}
+
+.edits .deleteBtn, .deleteReplyBtn{
+    color: var(--Soft-Red);
+}
+
+.you{
+    color: white;
+    font-weight: 600;
+    background-color: rgb(37 99 235);
+    border-radius: 5px;
+    padding: 3px 5px;
+}
