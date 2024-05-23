@@ -221,7 +221,16 @@ document.querySelector(".boxes").addEventListener("click", function (e) {
     editBtn.style.display = "block";
     deleteBtn.style.display = "block";
 
-    dataArray[val].content = text.textContent;
+    let mentionMatch = input.value.match(/^@\w+/);
+    let mention = mentionMatch ? mentionMatch[0] : "";
+    let content = input.value.replace(mention, "").trim();
+    text.innerHTML = `${
+      mention ? `<span class="usernameTo">${mention}</span> ` : ""
+    }${content}`;
+
+    dataArray[val].replyingTo = mention.replace("@", "");
+    dataArray[val].content = content;
+
     isReply ? saveRepliesToLocalStorage(replies) : saveToLocalStorage(data);
   }
 });
@@ -258,9 +267,14 @@ document.addEventListener("click", (e) => {
     let re = e.target.parentElement.closest(".comments");
     let name = re.querySelector(".info .head .profile .userName").textContent;
 
+    let replyContent = replyText.value;
+    let mentionMatch = replyContent.match(/^@\w+/);
+    let mention = mentionMatch ? mentionMatch[0] : "";
+    let content = replyContent.replace(mention, "").trim();
+
     let userdata = {
       id: Math.floor(Math.random() * 10000),
-      content: replyText.value,
+      content: content,
       createdAt: Date.now(),
       score: 0,
       replyingTo: name,
