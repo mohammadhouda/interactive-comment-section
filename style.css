@@ -283,6 +283,11 @@ fill: rgba(0, 128, 255, 0.603);
     color: white;
 }
 
+svg{
+ pointer-events: none;
+}
+
+
 
 .edits .editBtn, .editReplyBtn{
     color: rgb(37 99 235);
