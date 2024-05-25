@@ -14,7 +14,7 @@ function getRequest() {
     if (this.readyState === 4) {
       if (this.status === 200) {
         users = JSON.parse(this.responseText);
-        console.log(users.comments);
+
         addData(users.comments);
         displayData(data);
         displayReply(replies);
@@ -476,7 +476,7 @@ function displayReply(data) {
     let cont = document.createElement("div");
     cont.className = "replyComments";
     let comtCont = document.querySelector(`.comments[data-id="${ele.cont}"]`);
-    console.log(comtCont);
+
     cont.setAttribute("data-id", ele.id);
     cont.innerHTML = `
       <div class="cont">
