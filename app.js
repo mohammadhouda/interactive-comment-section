@@ -7,7 +7,7 @@ let replyUser = document.querySelector(".replyUser");
 let replyText = document.querySelector(".replyText");
 let data = JSON.parse(localStorage.getItem("comments")) || [];
 let replies = JSON.parse(localStorage.getItem("replies")) || [];
-
+let userName = "";
 function getRequest() {
   let myRequest = new XMLHttpRequest();
   myRequest.onreadystatechange = function () {
@@ -183,6 +183,7 @@ document.querySelector(".boxes").addEventListener("click", function (e) {
     let deleteBtn = info.querySelector(
       e.target.classList.contains("editBtn") ? ".deleteBtn" : ".deleteReplyBtn"
     );
+
     let editBtn = e.target;
     input.className = "input";
     input.value = text.textContent;
@@ -249,7 +250,7 @@ document.addEventListener("click", (e) => {
       let userNameElement = boxElement.querySelector(".profile .userName");
 
       if (userNameElement) {
-        var userName = userNameElement.textContent;
+        userName = userNameElement.textContent;
         use = userName;
         replyText.setAttribute("placeholder", `Reply To ${userName}...`);
         replyText.focus();
@@ -265,6 +266,10 @@ document.addEventListener("click", (e) => {
       .getAttribute("data-id");
 
     let re = e.target.parentElement.closest(".comments");
+
+    let re1 = re.querySelector(".replyComments");
+    console.log("🚀 ~ document.addEventListener ~ re1:", re1);
+
     let name = re.querySelector(".info .head .profile .userName").textContent;
 
     let replyContent = replyText.value;
@@ -277,7 +282,7 @@ document.addEventListener("click", (e) => {
       content: content,
       createdAt: Date.now(),
       score: 0,
-      replyingTo: name,
+      replyingTo: userName,
       cont: index,
       user: {
         image: {
