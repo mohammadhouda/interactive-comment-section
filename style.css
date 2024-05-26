@@ -305,3 +305,83 @@ svg{
     border-radius: 5px;
     padding: 3px 5px;
 }
+
+
+@media only screen and (max-width:900px) {
+    .box{
+        max-width: 100%;
+    }
+    .boxes{
+    max-width: 100%;
+    }
+
+    .replyComments {
+        max-width: fit-content;
+        margin-left: 150px;
+    }
+
+    .replyComments::before{
+        left: -10%;
+    }
+
+    .inputUser, .replyUser {
+        max-width: 100%;
+    }
+}
+
+@media only screen and (max-width:675px) {
+    .text{
+        font-size: 15px;
+    }
+
+    .box{
+        flex-direction: column-reverse;
+        align-items: flex-start;
+    }
+
+    .box .vote{
+        flex-direction: row;
+        height: fit-content;
+        gap: 10px;
+        align-items: center;
+        margin-left: 0;
+    }
+
+    .addVote{
+        margin-top: 5px;
+    }
+
+
+    .replyComments {
+        max-width: 100%;
+        margin-left: 0px;
+    }
+
+    .replyComments::before{
+        left: 0%;
+        display: none;
+    }
+
+    .inputUser .userImg, .replyUser .userImg{
+        width: 30px;
+        height: 30px;
+    }
+
+    .head .profile {
+        font-size: 15px;
+    }
+
+     .box .info .profile .timepost{
+         display: none;
+    }
+
+    .you{
+        margin-right: 20px;
+    }
+
+    .container{
+        margin-top: 0;
+    }
+
+}
+
